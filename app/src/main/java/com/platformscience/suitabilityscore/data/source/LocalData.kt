@@ -7,6 +7,8 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 
 object LocalData {
 	
+	private var response: ResponseData? = null
+	
 	private val jsonLocalData = "{\n" +
 			"  \"shipments\": [\n" +
 			"    \"215 Osinski Manors\",\n" +
@@ -34,8 +36,7 @@ object LocalData {
 			"  ]\n" +
 			"}"
 	
-	fun getDataFromFile(): ResponseData? {
-
+	fun getDataFromFile() {
 //		val jsonLocalData = resources.openRawResource(R.raw.data).bufferedReader().use {
 //			it.readText()
 //		}
@@ -45,6 +46,8 @@ object LocalData {
 			.build()
 		val jsonAdapter: JsonAdapter<ResponseData> = moshi.adapter(ResponseData::class.java)
 		
-		return jsonAdapter.fromJson(jsonLocalData)
+		response = jsonAdapter.fromJson(jsonLocalData)
 	}
+	
+	fun getResponse(): ResponseData? = response
 }

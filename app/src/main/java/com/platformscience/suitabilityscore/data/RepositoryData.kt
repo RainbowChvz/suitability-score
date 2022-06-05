@@ -18,11 +18,11 @@ class RepositoryData {
 	
 	suspend fun getData() {
 		withContext(Dispatchers.IO) {
-			LocalData.getDataFromFile()?.apply {
-				_drivers.value = drivers.asDrivers()
-				_shipments.value = shipments.asShipments()
-			}
+			LocalData.getDataFromFile()
 		}
+		
+		_drivers.value = LocalData.getResponse()?.drivers?.asDrivers()
+		_shipments.value = LocalData.getResponse()?.shipments?.asShipments()
 	}
 }
 

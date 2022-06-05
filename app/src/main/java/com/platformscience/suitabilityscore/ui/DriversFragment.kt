@@ -14,7 +14,7 @@ class DriversFragment : Fragment() {
 	override fun onCreateView(
 		inflater: LayoutInflater, container: ViewGroup?,
 		savedInstanceState: Bundle?
-	): View? {
+	): View {
 		
 		binding = FragmentDriversBinding.inflate(
 			inflater,

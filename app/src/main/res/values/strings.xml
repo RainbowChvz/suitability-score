@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Suitability Score</string>
     <string name="available_drivers">Available drivers:</string>
+    <string name="desc_button_shipment">Tap to check driver\'s shipment</string>
 </resources>

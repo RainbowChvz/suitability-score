@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Suitability Score</string>
+    <string name="available_drivers">Available drivers:</string>
 </resources>

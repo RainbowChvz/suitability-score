@@ -5,6 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import com.platformscience.suitabilityscore.data.model.Driver
 import com.platformscience.suitabilityscore.data.model.Shipment
 import com.platformscience.suitabilityscore.data.source.LocalData
+import com.platformscience.suitabilityscore.domain.Utils.Companion.asDrivers
+import com.platformscience.suitabilityscore.domain.Utils.Companion.asShipments
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -24,28 +26,4 @@ class RepositoryData {
 		_drivers.value = LocalData.getResponse()?.drivers?.asDrivers()
 		_shipments.value = LocalData.getResponse()?.shipments?.asShipments()
 	}
-}
-
-private fun List<String>.asDrivers(): List<Driver> {
-	
-	val list = mutableListOf<Driver>()
-	for (i in this) {
-		list.add(
-			Driver(i)
-		)
-	}
-	
-	return list
-}
-
-private fun List<String>.asShipments(): List<Shipment> {
-	
-	val list = mutableListOf<Shipment>()
-	for (i in this) {
-		list.add(
-			Shipment(i)
-		)
-	}
-	
-	return list
 }

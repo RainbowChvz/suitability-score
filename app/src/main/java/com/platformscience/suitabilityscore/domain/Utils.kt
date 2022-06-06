@@ -1,5 +1,6 @@
 package com.platformscience.suitabilityscore.domain
 
+import android.content.Context
 import android.view.animation.Animation
 import android.view.animation.LinearInterpolator
 import android.view.animation.RotateAnimation
@@ -8,6 +9,13 @@ import com.platformscience.suitabilityscore.data.model.*
 class Utils {
 	
 	companion object {
+		private lateinit var appContext: Context
+		
+		fun setContext(ctx: Context) {
+			appContext = ctx
+		}
+		fun getContext() = appContext
+		
 		fun List<String>.asDrivers(): List<Driver> {
 			
 			val list = mutableListOf<Driver>()

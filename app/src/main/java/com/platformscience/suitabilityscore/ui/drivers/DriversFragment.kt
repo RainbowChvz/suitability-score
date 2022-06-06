@@ -1,11 +1,10 @@
-package com.platformscience.suitabilityscore.ui
+package com.platformscience.suitabilityscore.ui.drivers
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.platformscience.suitabilityscore.databinding.FragmentDriversBinding
@@ -14,7 +13,7 @@ import com.platformscience.suitabilityscore.domain.Utils.Companion.loadingAnim
 class DriversFragment : Fragment() {
 	
 	private lateinit var binding: FragmentDriversBinding
-	private val viewModel: DriversViewModel by activityViewModels()
+	private val viewModel: DriversViewModel by viewModels()
 	
 	override fun onCreateView(
 		inflater: LayoutInflater, container: ViewGroup?,

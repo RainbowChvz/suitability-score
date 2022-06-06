@@ -10,7 +10,7 @@ import com.platformscience.suitabilityscore.domain.Utils.Companion.asShipments
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class RepositoryData {
+object RepositoryData {
 	
 	private val _drivers = MutableLiveData<List<Driver>>()
 	val drivers: LiveData<List<Driver>> = _drivers

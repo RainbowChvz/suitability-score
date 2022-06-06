@@ -1,11 +1,11 @@
-package com.platformscience.suitabilityscore.ui
+package com.platformscience.suitabilityscore.ui.shipment
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import com.platformscience.suitabilityscore.R
 import com.platformscience.suitabilityscore.databinding.FragmentShipmentBinding
 import com.platformscience.suitabilityscore.domain.Utils.Companion.loadingAnim
@@ -13,7 +13,7 @@ import com.platformscience.suitabilityscore.domain.Utils.Companion.loadingAnim
 class ShipmentFragment : Fragment() {
 	
 	private lateinit var binding: FragmentShipmentBinding
-	private val viewModel: DriversViewModel by activityViewModels()
+	private val viewModel: ShipmentViewModel by viewModels()
 	
 	private var currentDriver: String? = null
 	private var currentPosition = -1

@@ -1,4 +1,4 @@
-package com.platformscience.suitabilityscore.ui
+package com.platformscience.suitabilityscore.ui.drivers
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

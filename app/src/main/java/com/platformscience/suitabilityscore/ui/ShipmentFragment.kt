@@ -55,6 +55,8 @@ class ShipmentFragment : Fragment() {
 		viewModel.shipment.observe(viewLifecycleOwner) { shipment ->
 			binding.ivLoading.visibility = View.INVISIBLE
 			binding.tvShipment.text = shipment.address
+			
+			viewModel.updateDriver(currentPosition)
 		}
 	}
 }

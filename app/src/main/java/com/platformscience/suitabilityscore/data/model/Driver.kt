@@ -9,5 +9,5 @@ data class Driver(
 	var ssOddConsonant: Float = 0f,
 	// Get common factors for driver's name length
 	var commonFactors: List<Int>? = null,
-	var shipment: String? = null
+	var shipment: Shipment? = null
 )

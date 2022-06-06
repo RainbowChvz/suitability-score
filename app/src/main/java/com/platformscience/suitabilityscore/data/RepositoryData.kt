@@ -31,6 +31,10 @@ class RepositoryData {
 	suspend fun getShipmentByDriver(driverIndex: Int) {
 		
 		val driver = drivers.value?.get(driverIndex)
+		if (driver?.shipment != null) {
+			_shipment.value = driver.shipment!!
+			return
+		}
 		
 		var currentShipment: Shipment? = null
 		var maxSuitableScore = 0f
@@ -69,5 +73,9 @@ class RepositoryData {
 		}
 		
 		_shipment.value = currentShipment!!
+	}
+	
+	fun updateDriverWithShipment(driverIndex: Int) {
+		_drivers.value?.get(driverIndex)?.shipment = shipment.value
 	}
 }

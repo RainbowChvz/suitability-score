@@ -26,4 +26,8 @@ class DriversViewModel : ViewModel() {
 			repository.getShipmentByDriver(driver)
 		}
 	}
+	
+	fun updateDriver(driver: Int) {
+		repository.updateDriverWithShipment(driver)
+	}
 }

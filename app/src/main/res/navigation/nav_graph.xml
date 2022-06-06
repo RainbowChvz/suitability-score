@@ -18,5 +18,9 @@
         android:id="@+id/shipmentFragment"
         android:name="com.platformscience.suitabilityscore.ui.ShipmentFragment"
         android:label="fragment_shipment"
-        tools:layout="@layout/fragment_shipment" />
+        tools:layout="@layout/fragment_shipment" >
+        <argument
+            android:name="driver"
+            app:argType="string" />
+    </fragment>
 </navigation>

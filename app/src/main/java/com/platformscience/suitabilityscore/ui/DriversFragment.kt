@@ -35,7 +35,8 @@ class DriversFragment : Fragment() {
 		
 		binding.rvDrivers.setHasFixedSize(true)
 		binding.rvDrivers.adapter = DriversAdapter { driver ->
-			val direction = DriversFragmentDirections.actionDriversFragmentToShipmentFragment()
+			val direction =
+				DriversFragmentDirections.actionDriversFragmentToShipmentFragment(driver = driver)
 			findNavController().navigate(direction)
 		}
 		

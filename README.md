@@ -1,6 +1,7 @@
 # suitability-score
 
-Mobile SDE Code Exercise Platform Science Code Exercise
+Mobile SDE Code Exercise
+Platform Science Code Exercise
 
 Project has:
 
@@ -43,6 +44,7 @@ Tools version:
 - Min API level: 21
 
 Instructions to build:
+
 - Open Android Studio.
 - Select project.
 - Please select "Trust project" if prompted to "Trust and open project?".

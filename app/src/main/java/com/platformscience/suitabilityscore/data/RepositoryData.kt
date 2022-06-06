@@ -18,7 +18,7 @@ class RepositoryData {
 	private val _shipment = MutableLiveData<Shipment>()
 	val shipment: LiveData<Shipment> = _shipment
 	
-	var shipments: List<Shipment>? = null
+	var shipments: MutableList<Shipment>? = null
 	
 	suspend fun getData() {
 		withContext(Dispatchers.IO) {
@@ -73,6 +73,7 @@ class RepositoryData {
 		}
 		
 		_shipment.value = currentShipment!!
+		shipments?.remove(currentShipment!!)
 	}
 	
 	fun updateDriverWithShipment(driverIndex: Int) {

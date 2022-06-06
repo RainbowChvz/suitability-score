@@ -22,7 +22,7 @@ class Utils {
 			return list
 		}
 		
-		fun List<String>.asShipments(): List<Shipment> {
+		fun List<String>.asShipments(): MutableList<Shipment> {
 			
 			val list = mutableListOf<Shipment>()
 			for (i in this) {

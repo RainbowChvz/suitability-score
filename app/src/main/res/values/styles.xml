@@ -14,7 +14,8 @@
 
     <style name="Widget.SuitabilityScore.ImageButton" parent="Widget.AppCompat.ImageButton">
         <item name="android:layout_marginEnd">16dp</item>
-        <item name="android:backgroundTint">?attr/colorSecondary</item>
+        <item name="android:backgroundTint">?attr/colorPrimary</item>
+        <item name="android:tint">?attr/colorPrimaryVariant</item>
     </style>
 
     <style name="LoadingView">
@@ -23,6 +24,6 @@
         <item name="android:layout_marginTop">16dp</item>
         <item name="android:contentDescription">@string/desc_loading</item>
         <item name="android:src">@drawable/ic_loading</item>
-        <item name="android:tint">?attr/colorSecondary</item>
+        <item name="android:tint">?attr/colorPrimary</item>
     </style>
 </resources>

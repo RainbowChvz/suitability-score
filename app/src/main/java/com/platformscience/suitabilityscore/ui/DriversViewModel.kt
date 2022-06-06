@@ -9,6 +9,7 @@ class DriversViewModel : ViewModel() {
 	
 	private val repository = RepositoryData()
 	val drivers = repository.drivers
+	val shipment = repository.shipment
 	
 	init {
 		getDataFromRepository()
@@ -17,6 +18,12 @@ class DriversViewModel : ViewModel() {
 	private fun getDataFromRepository() {
 		viewModelScope.launch {
 			repository.getData()
+		}
+	}
+	
+	fun getShipment(driver: Int) {
+		viewModelScope.launch {
+			repository.getShipmentByDriver(driver)
 		}
 	}
 }

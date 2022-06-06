@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.platformscience.suitabilityscore.data.model.Driver
 import com.platformscience.suitabilityscore.databinding.ItemDriverLinearBinding
 
-class DriversAdapter(val onClick: (String) -> Unit) :
+class DriversAdapter(val onClick: (String, Int) -> Unit) :
 	ListAdapter<Driver, DriversAdapter.DriverViewHolder>(DiffCallback) {
 	object DiffCallback : DiffUtil.ItemCallback<Driver>() {
 		override fun areItemsTheSame(
@@ -43,7 +43,7 @@ class DriversAdapter(val onClick: (String) -> Unit) :
 		holder.binding.apply {
 			tvDriverName.text = driver.name
 			btnShipment.setOnClickListener {
-				onClick(driver.name)
+				onClick(driver.name, position)
 			}
 		}
 	}

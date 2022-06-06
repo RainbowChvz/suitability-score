@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.platformscience.suitabilityscore.databinding.FragmentDriversBinding
@@ -13,7 +14,7 @@ import com.platformscience.suitabilityscore.domain.Utils.Companion.loadingAnim
 class DriversFragment : Fragment() {
 	
 	private lateinit var binding: FragmentDriversBinding
-	private val viewModel: DriversViewModel by viewModels()
+	private val viewModel: DriversViewModel by activityViewModels()
 	
 	override fun onCreateView(
 		inflater: LayoutInflater, container: ViewGroup?,
@@ -34,9 +35,12 @@ class DriversFragment : Fragment() {
 		binding.ivLoading.startAnimation(loadingAnim())
 		
 		binding.rvDrivers.setHasFixedSize(true)
-		binding.rvDrivers.adapter = DriversAdapter { driver ->
+		binding.rvDrivers.adapter = DriversAdapter { driver, position ->
 			val direction =
-				DriversFragmentDirections.actionDriversFragmentToShipmentFragment(driver = driver)
+				DriversFragmentDirections.actionDriversFragmentToShipmentFragment(
+					driver = driver,
+					position = position
+				)
 			findNavController().navigate(direction)
 		}
 		

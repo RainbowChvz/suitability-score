@@ -15,8 +15,10 @@ class RepositoryData {
 	private val _drivers = MutableLiveData<List<Driver>>()
 	val drivers: LiveData<List<Driver>> = _drivers
 	
-	private val _shipments = MutableLiveData<List<Shipment>>()
-	val shipments: LiveData<List<Shipment>> = _shipments
+	private val _shipment = MutableLiveData<Shipment>()
+	val shipment: LiveData<Shipment> = _shipment
+	
+	var shipments: List<Shipment>? = null
 	
 	suspend fun getData() {
 		withContext(Dispatchers.IO) {
@@ -24,6 +26,48 @@ class RepositoryData {
 		}
 		
 		_drivers.value = LocalData.getResponse()?.drivers?.asDrivers()
-		_shipments.value = LocalData.getResponse()?.shipments?.asShipments()
+	}
+	
+	suspend fun getShipmentByDriver(driverIndex: Int) {
+		
+		val driver = drivers.value?.get(driverIndex)
+		
+		var currentShipment: Shipment? = null
+		var maxSuitableScore = 0f
+		
+		withContext(Dispatchers.IO) {
+			if (shipments == null) {
+				shipments = LocalData.getResponse()?.shipments?.asShipments()
+			}
+			
+			for (i in shipments!!) {
+				var suitableScore = when (i.streetName!!.length % 2) {
+					0 -> driver!!.ssEvenVowel
+					else -> driver!!.ssOddConsonant
+				}
+				
+				val commonFactorsMap: HashMap<Int, Int> = HashMap()
+				for (j in i.commonFactors!!) {
+					commonFactorsMap[j] = 1
+				}
+				
+				for (j in driver.commonFactors!!) {
+					commonFactorsMap[j] = when (commonFactorsMap[j]) {
+						0 -> 1
+						else -> {
+							suitableScore *= 1.5f
+							break
+						}
+					}
+				}
+				
+				if (suitableScore > maxSuitableScore) {
+					maxSuitableScore = suitableScore
+					currentShipment = i
+				}
+			}
+		}
+		
+		_shipment.value = currentShipment!!
 	}
 }

@@ -22,5 +22,8 @@
         <argument
             android:name="driver"
             app:argType="string" />
+        <argument
+            android:name="position"
+            app:argType="integer" />
     </fragment>
 </navigation>

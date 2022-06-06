@@ -53,7 +53,9 @@ class ShipmentFragment : Fragment() {
 		
 		viewModel.getShipment(currentPosition)
 		viewModel.shipment.observe(viewLifecycleOwner) { shipment ->
+			binding.ivLoading.clearAnimation()
 			binding.ivLoading.visibility = View.INVISIBLE
+			
 			binding.tvShipment.text = shipment.address
 			
 			viewModel.updateDriver(currentPosition)

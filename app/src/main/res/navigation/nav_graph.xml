@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/driversFragment"
         android:name="com.platformscience.suitabilityscore.ui.drivers.DriversFragment"
-        android:label="fragment_drivers"
-        tools:layout="@layout/fragment_drivers" >
+        android:label="@string/label_driver"
+        tools:layout="@layout/fragment_drivers">
         <action
             android:id="@+id/action_driversFragment_to_shipmentFragment"
             app:destination="@id/shipmentFragment" />
@@ -17,8 +17,8 @@
     <fragment
         android:id="@+id/shipmentFragment"
         android:name="com.platformscience.suitabilityscore.ui.shipment.ShipmentFragment"
-        android:label="fragment_shipment"
-        tools:layout="@layout/fragment_shipment" >
+        android:label="@string/label_shipment"
+        tools:layout="@layout/fragment_shipment">
         <argument
             android:name="driver"
             app:argType="string" />

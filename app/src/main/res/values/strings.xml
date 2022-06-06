@@ -4,4 +4,6 @@
     <string name="desc_button_shipment">Tap to check driver\'s shipment</string>
     <string name="desc_loading">Please wait, data is loading</string>
     <string name="shipment_header">Shipment for %s:</string>
+    <string name="label_driver">Pick a driver</string>
+    <string name="label_shipment">Shipment assignation</string>
 </resources>

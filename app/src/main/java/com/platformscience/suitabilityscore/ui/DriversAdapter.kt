@@ -8,8 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.platformscience.suitabilityscore.data.model.Driver
 import com.platformscience.suitabilityscore.databinding.ItemDriverLinearBinding
 
-class DriversAdapter : ListAdapter<Driver, DriverViewHolder>(DiffCallback) {
-	object DiffCallback: DiffUtil.ItemCallback<Driver>() {
+class DriversAdapter(val onClick: (String) -> Unit) :
+	ListAdapter<Driver, DriversAdapter.DriverViewHolder>(DiffCallback) {
+	object DiffCallback : DiffUtil.ItemCallback<Driver>() {
 		override fun areItemsTheSame(
 			oldItem: Driver,
 			newItem: Driver
@@ -38,13 +39,15 @@ class DriversAdapter : ListAdapter<Driver, DriverViewHolder>(DiffCallback) {
 	
 	override fun onBindViewHolder(holder: DriverViewHolder, position: Int) {
 		val driver = getItem(position)
-		holder.bind(driver)
+		
+		holder.binding.apply {
+			tvDriverName.text = driver.name
+			btnShipment.setOnClickListener {
+				onClick(driver.name)
+			}
+		}
 	}
-}
-
-class DriverViewHolder(val binding: ItemDriverLinearBinding) : RecyclerView.ViewHolder(binding.root) {
 	
-	fun bind(current: Driver) {
-		binding.tvDriverName.text = current.name
-	}
+	class DriverViewHolder(val binding: ItemDriverLinearBinding) :
+		RecyclerView.ViewHolder(binding.root)
 }
